@@ -16,7 +16,7 @@ namespace BattleShip
         public ShipType Type { get; set; }
         public List<Point> OccupiedPoints { get; set; }
         public int Length { get; set; }
-        public bool IsDestroyed { get {return  } }
+        public bool IsDestroyed { get { return OccupiedPoints.All(x => x.Status == Point.Pointstatus.Hit); } }
 
         //constructor
        public Ship (ShipType typeOfShip)
@@ -32,7 +32,7 @@ namespace BattleShip
                    this.Length = 4;
                    break;
                case ShipType.Cruiser:
-                   this.Length = 3; 
+                   this.Length = 3;
                    break;
                case ShipType.Submarine:
                    this.Length = 3;
@@ -43,6 +43,10 @@ namespace BattleShip
                default:
                    break;
            }
+           int[] shipLen = new int[] { 5, 4, 3, 3, 2 };
+           OccupiedPoints = new List<Point>();
+           this.Type = typeOfShip;
+           this.Length = shipLen[(int)typeOfShip];
        }
     }
 }

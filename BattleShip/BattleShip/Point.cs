@@ -20,7 +20,7 @@ namespace BattleShip
         public int Y {get; set;}
         public Pointstatus Status { get; set; }
 
-        //consotructor
+        //constructor
         public Point(int x, int y, Pointstatus p)
         {
             this.X = x;       
